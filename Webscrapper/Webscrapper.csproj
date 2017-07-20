@@ -52,8 +52,11 @@
     <Reference Include="Windows" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IScrapper.cs" />
+    <Compile Include="KoreusScrapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpionScrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
