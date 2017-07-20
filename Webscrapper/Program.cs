@@ -38,6 +38,7 @@ namespace Webscrapper
 
 			Scrappers.Add(new KoreusScrapper());
 			Scrappers.Add(new SpionScrapper());
+			Scrappers.Add(new VdmScrapper());
 			IsInitialized = true;
 		}
 
@@ -56,7 +57,7 @@ namespace Webscrapper
 
 			ToastNotificationManager.CreateToastNotifier("webSccrapper").Show(toast);
 
-			Console.WriteLine($"New article in {siteName}");
+			Console.WriteLine($"{DateTime.Now} New article in {siteName}");
 		}
 	}
 }
