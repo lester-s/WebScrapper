@@ -1,0 +1,7 @@
+D:\Projects\WebScrapper\Webscrapper\bin\Debug\Webscrapper.exe.config
+D:\Projects\WebScrapper\Webscrapper\bin\Debug\Webscrapper.exe
+D:\Projects\WebScrapper\Webscrapper\bin\Debug\Webscrapper.pdb
+D:\Projects\WebScrapper\Webscrapper\obj\Debug\Webscrapper.csprojResolveAssemblyReference.cache
+D:\Projects\WebScrapper\Webscrapper\obj\Debug\Webscrapper.exe
+D:\Projects\WebScrapper\Webscrapper\obj\Debug\Webscrapper.pdb
+D:\Projects\WebScrapper\Webscrapper\bin\Debug\System.Runtime.dll
