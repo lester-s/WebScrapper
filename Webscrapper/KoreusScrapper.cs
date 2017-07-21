@@ -9,27 +9,34 @@ using Windows.UI.Notifications;
 
 namespace Webscrapper
 {
-	public class KoreusScrapper: IScrapper
+	public class KoreusScrapper : IScrapper
 	{
 		public string Name { get; }
-
-		const string address = "https://www.koreus.com/modules/news/";
+		public string Address { get; }
 
 		public static long LastArticleIndex = 0;
 
 		public KoreusScrapper()
 		{
 			Name = "Koreus.com";
+			Address = "https://www.koreus.com/modules/news/";
 		}
+
 		public bool Check()
 		{
-
 			long tempMax = 0;
 			var page = string.Empty;
 
 			using (var client = new WebClient())
 			{
-				page = client.DownloadString(address);
+				try
+				{
+					page = client.DownloadString(Address);
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine(e.Message);
+				}
 			}
 
 			if (string.IsNullOrWhiteSpace(page))

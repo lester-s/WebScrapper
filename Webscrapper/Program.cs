@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
@@ -9,11 +10,11 @@ using Windows.UI.Notifications;
 
 namespace Webscrapper
 {
-	class Program
+	internal class Program
 	{
 		private static readonly List<IScrapper> Scrappers = new List<IScrapper>();
-		
-		static void Main(string[] args)
+
+		private static void Main(string[] args)
 		{
 			Init();
 			foreach (var scrapper in Program.Scrappers)
@@ -21,7 +22,7 @@ namespace Webscrapper
 				if (scrapper.Check())
 				{
 					SendToastNotification(scrapper.Name);
-
+					Process.Start(scrapper.Address);
 				}
 			}
 
@@ -51,7 +52,6 @@ namespace Webscrapper
 			var stringElements = toastXml.GetElementsByTagName("text");
 
 			stringElements[0].AppendChild(toastXml.CreateTextNode($"There is a new article in {siteName}"));
-
 
 			var toast = new ToastNotification(toastXml);
 

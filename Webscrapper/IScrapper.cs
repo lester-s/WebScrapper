@@ -8,7 +8,10 @@ namespace Webscrapper
 {
 	public interface IScrapper
 	{
-		string  Name { get;}
+		string Name { get; }
+
 		bool Check();
+
+		string Address { get; }
 	}
 }

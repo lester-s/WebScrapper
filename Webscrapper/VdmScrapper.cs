@@ -8,18 +8,20 @@ using System.Threading.Tasks;
 
 namespace Webscrapper
 {
-	public class VdmScrapper: IScrapper
+	public class VdmScrapper : IScrapper
 	{
 		public string Name { get; }
 
-		const string address = "http://www.viedemerde.fr/";
+		public string Address { get; }
 
 		public static long LastArticleIndex = 0;
 
 		public VdmScrapper()
 		{
+			Address = "http://www.viedemerde.fr/";
 			Name = "VDM.com";
 		}
+
 		public bool Check()
 		{
 			long tempMax = 0;
@@ -27,7 +29,14 @@ namespace Webscrapper
 
 			using (var client = new WebClient())
 			{
-				page = client.DownloadString(address);
+				try
+				{
+					page = client.DownloadString(Address);
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine(e.Message);
+				}
 			}
 
 			if (string.IsNullOrWhiteSpace(page))

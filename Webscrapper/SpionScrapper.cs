@@ -8,16 +8,19 @@ using System.Threading.Tasks;
 
 namespace Webscrapper
 {
-	public class SpionScrapper:IScrapper
+	public class SpionScrapper : IScrapper
 	{
 		public string Name { get; }
-		const string address = "https://www.spi0n.com/";
+		public string Address { get; }
+
 		public static long LastArticleIndex = 0;
 
 		public SpionScrapper()
 		{
 			Name = "Spion.com";
+			Address = "https://www.spi0n.com/";
 		}
+
 		public bool Check()
 		{
 			long tempMax = 0;
@@ -25,7 +28,14 @@ namespace Webscrapper
 
 			using (var client = new WebClient())
 			{
-				page = client.DownloadString(address);
+				try
+				{
+					page = client.DownloadString(Address);
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine(e.Message);
+				}
 			}
 
 			if (string.IsNullOrWhiteSpace(page))
